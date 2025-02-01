@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/tickets/'
+const API_URL = '/api/faqs/'
 
 // Create new ticket
 
@@ -16,14 +16,12 @@ const createTicket = async (ticketData, token) => {
     return response.data
 }
 
-const getTickets = async (token) => {
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }
+const getTickets = async () => {
+   
 
-    const response = await axios.get(API_URL, config)
+    const response = await axios.get(API_URL)
+
+    console.log('getting all the faqs: ', response.data)
 
     return response.data
 }
@@ -52,12 +50,26 @@ const closeTicket = async (ticketId, token) => {
     return response.data
 }
 
+// Update answer
+
+const updateAnswer = async (ticketId, answer, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const response = await axios.put(API_URL + ticketId, { answer }, config)
+    return response.data
+}
+
 
 const ticketService = {
     createTicket,
     getTickets,
     getTicket,
-    closeTicket
+    closeTicket,
+    updateAnswer
 }
 
 export default ticketService

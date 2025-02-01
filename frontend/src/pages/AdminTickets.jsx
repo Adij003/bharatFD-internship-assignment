@@ -3,9 +3,10 @@ import {useSelector, useDispatch} from 'react-redux'
 import {getTickets, reset} from '../features/tickets/ticketSlice'
 import Spinner from '../components/Spinner'
 import Backbutton from '../components/BackButton'
-import TicketItem from '../components/TicketItem'
 
-function Tickets() {
+import AdminTicketItem from '../components/AdminTicketItem'
+
+function AdminTickets() {
     const {tickets, isLoading, isSuccess} = useSelector((state) => state.tickets)
     const dispatch = useDispatch()
 
@@ -28,6 +29,7 @@ function Tickets() {
     <>
     <Backbutton url='/'/>
         <h1>All FAQs</h1> 
+        <p>Welcome to view all queries, you can answer the user FAQs from here</p>
         <div className="tickets">
             <div className="ticket-headings">
                 <div>Date</div>
@@ -37,7 +39,7 @@ function Tickets() {
             </div>
             {
                 tickets.map((ticket) => (
-                    <TicketItem key={ticket._id} ticket={ticket} />
+                    <AdminTicketItem key={ticket._id} ticket={ticket} />
                 ))
             }
         </div>
@@ -45,4 +47,4 @@ function Tickets() {
   )
 }
 
-export default Tickets 
+export default AdminTickets 

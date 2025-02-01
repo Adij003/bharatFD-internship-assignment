@@ -18,12 +18,11 @@ function NewTicket() {
 
   const [name] = useState(user.name);
   const [email] = useState(user.email);
-  const [product, setProduct] = useState("iPhone");
-  const [description, setDescription] = useState("");
+  const [question, setDescription] = useState("");
 
   useEffect(() => {
     if(isError){
-      toast.error(message)
+      toast.error(message) 
     }
 
     if(isSuccess){
@@ -36,7 +35,7 @@ function NewTicket() {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    dispatch(createTicket({product, description}))
+    dispatch(createTicket({question}))
   };
 
   if(isLoading) {
@@ -62,30 +61,16 @@ function NewTicket() {
           <input type="text" className="form-control" value={email} disabled />
         </div>
         <form onSubmit={onSubmit}>
-          <div className="form-group-product">
-            <label htmlFor="product">Product</label>
-
-            <select
-              name="product"
-              id="product"
-              value={product}
-              onChange={(e) => setProduct(e.target.value)}
-            >
-              <option value="iPhone">iPhone</option>
-              <option value="Macbook Pro">Macbook Pro</option>
-              <option value="iMac">iMac</option>
-              <option value="iPad">iPad</option>
-            </select>
-          </div>
+      
 
           <div className="form-group">
-            <label htmlFor="description"> Question</label>
+            <label htmlFor="question"> Question</label>
             <textarea
               name="description"
               id="description"
               className="form-control"
               placeholder="Please type your question here...."
-              value={description}
+              value={question}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>

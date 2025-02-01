@@ -281,7 +281,7 @@ h3 {
 /* Ensure answer text is visible */
 .answer-text {
   width: 100%;
-  text-align: left;
+  text-align: center;
   font-size: 16px;
   color: #333; /* Darker text for better visibility */
   word-wrap: break-word;
@@ -300,10 +300,93 @@ h3 {
   align-items: center;
   font-size: 18px;
 }
+.button-update {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+/* .for-update-ans{
+  display: flex;
+
+} */
+
+.button-update:hover {
+  background-color: #45a049;
+}
 
 
 .ticket-headings {
   font-weight: 700;
+}
+
+.answer-edit {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between input and buttons */
+}
+
+.textarea-answer {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  resize: vertical; /* Allow vertical resize */
+}
+
+.submit-btn-ans,
+.cancel-button-ans {
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #007bff; /* Button color */
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.submit-btn-ans:hover,
+.cancel-button-ans:hover {
+  background-color: #0056b3; /* Darker blue for hover */
+}
+
+.submit-btn-ans:disabled,
+.cancel-button-ans:disabled {
+  background-color: #d6d6d6;
+  cursor: not-allowed;
+}
+
+.cancel-button-ans {
+  background-color: #d9534f; /* Red color for cancel */
+}
+
+.cancel-button-ans:hover {
+  background-color: #c9302c; /* Darker red on hover */
+}
+
+/* Ensure the Answer button is clearly visible */
+.button-ans {
+  padding: 12px 20px; /* Increased padding for a larger button */
+  font-size: 16px; /* Increased font size */
+  background-color: #28a745; /* Green color for the button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.button-ans:hover {
+  background-color: #218838; /* Darker green on hover */
 }
 
 .status {

@@ -23,8 +23,8 @@ const login = async (userData) => {
     if(response.data) {
         localStorage.setItem('user', JSON.stringify(response.data))
     }
-
-    return response.data
+    console.log('user logged in', response.data)
+    return response.data 
 }
 
 // logout

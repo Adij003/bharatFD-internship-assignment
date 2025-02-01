@@ -9,7 +9,7 @@ function TicketItem({ ticket }) {
       
       <div className='ticket' onClick={() => setIsOpen(!isOpen)}>
         <div>{new Date(ticket.createdAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</div>
-        <div>{ticket.description}</div>
+        <div>{ticket.question}</div>
         <div className="toggle-icon">
           {isOpen ? <FaChevronUp /> : <FaChevronDown />}
         </div>
