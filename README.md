@@ -1,10 +1,10 @@
-#FAQ Management System
+# FAQ Management System
 
-Description
+## Description
 
-The FAQ Management System is a backend service that allows users to ask questions and receive answers from administrators. It includes user authentication, role-based access control, and multilingual FAQ support.
+The FAQ Management System is a full stack service that allows users to ask questions and receive answers from administrators. It includes user authentication via JWT, role-based access control, and multilingual FAQ support.
 
-Features
+## Features
 
 User Authentication: Registration and login with JWT-based authentication.
 
@@ -14,7 +14,7 @@ Public FAQs: All users can view FAQs, regardless of who asked them.
 
 Multilingual Support (Upcoming): Plans to support multiple languages for FAQs.
 
-Technologies Used
+## Technologies Used
 
 Backend: Node.js, Express.js
 
@@ -22,20 +22,9 @@ Database: MongoDB with Mongoose ORM
 
 Authentication: JWT, bcrypt.js
 
-Installation
-
-Prerequisites
-
-Node.js installed
-
-MongoDB instance (local or cloud-based like MongoDB Atlas)
-
-Steps
+## Installation
 
 Clone the repository:
-
-git clone https://github.com/yourusername/faq-management.git
-cd faq-management
 
 Install dependencies:
 
