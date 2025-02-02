@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended: false}))
 
 app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/faqs', require('./routes/faqRoutes'))
-
+// this is for heroku production, since i'm unable to add a payment method, heroku is not allowing me to host this website.
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static(path.join(__dirname, '../frontend/build')))
     app.get('*', (req, res) => res.sendFile(__dirname, '../', 'frontend', 'build', 'index.html'))
