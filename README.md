@@ -1,4 +1,4 @@
-#FAQ Management System#
+#FAQ Management System
 
 Description
 
