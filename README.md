@@ -111,7 +111,20 @@ Can answer FAQs.
 Can update and delete FAQs.
 
 ## UI
-
+Home screen
 ![User UI](images/image1.png)
+
+Ask a new Question (New Question page)
+![New Question Page](images/image2.png)
+
+Admin Answer page
+![AdminAns](images/image3.png)
+
+Update Answer Admin
+![UpdtAns](images/image4.png)
+
+All FAQs User page
+![AllFaqs](images/image5.png)
+
 
 
