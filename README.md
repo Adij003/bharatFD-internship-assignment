@@ -14,6 +14,9 @@ Public FAQs: All users can view FAQs, regardless of who asked them.
 
 Multilingual Support (Upcoming): Plans to support multiple languages for FAQs.
 
+## Note
+to create Admin, one will have to make direct change in the mongoDB 
+
 ## Technologies Used
 
 Backend: Node.js, Express.js
@@ -108,5 +111,7 @@ Can answer FAQs.
 Can update and delete FAQs.
 
 ## UI
+
+![User UI](images/image1.png)
 
 
