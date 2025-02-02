@@ -24,35 +24,30 @@ Authentication: JWT, bcrypt.js
 
 ## Installation
 
-Clone the repository:
+Clone the repository
 
-Install dependencies:
+npm i in the root folder,
+and then go to frontend folder
+cd frontend
+npm i
 
-npm install
 
 Create a .env file and add:
 
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
+(make sure the env file is outside the backend and frontend folder)
 
-Start the server:
+NODE_ENV = development
+PORT = 5000
+MONGO_URI = mongodb+srv://************&w=majority&appName=Cluster0 (add your mongodb atlas connection string)
+JWT_SECRET = abc123
+GOOGLE_CLOUD_API_KEY= (add your google cloud api key)
 
-npm start
 
-API Endpoints
+## Start the server:
 
-Authentication
+npm run dev
 
-Method
-
-Endpoint
-
-Description
-
-POST
-
-/api/users
+## API Endpoints
 
 Register a new user
 
@@ -70,43 +65,33 @@ Get current user details (protected)
 
 FAQ Management
 
-Method
+Method: Get
 
-Endpoint
+Endpoint: /api/faqs
 
-Description
+Description: Get all FAQs (public)
 
-GET
+Method: POST
 
-/api/faqs
+Endpoint: /api/faqs
 
-Get all FAQs (public)
+Description: Create a new FAQ (protected)
 
-POST
+Method: GET
 
-/api/faqs
+Endpoint: /api/faqs/:id
 
-Create a new FAQ (protected)
+Description: Get a single FAQ by ID (public)
 
-GET
+Method: PUT
 
-/api/faqs/:id
+Endpoint: /api/faqs/:id
 
-Get a single FAQ by ID (public)
+Description: Update an FAQ (admin only)
 
-PUT
 
-/api/faqs/:id
 
-Update an FAQ (admin only)
-
-DELETE
-
-/api/faqs/:id
-
-Delete an FAQ (admin only)
-
-User Roles & Access
+## User Roles & Access
 
 Users:
 
@@ -122,19 +107,6 @@ Can answer FAQs.
 
 Can update and delete FAQs.
 
-Roadmap
+## UI
 
-Implement admin panel for managing FAQs.
-
-Add multilingual FAQ support.
-
-Enhance frontend UI (if applicable).
-
-Contributing
-
-Feel free to fork the repository and submit pull requests!
-
-License
-
-This project is open-source and available under the MIT License.
 
