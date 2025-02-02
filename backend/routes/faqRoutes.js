@@ -22,4 +22,4 @@ router.route('/:id')
 
 module.exports = router; 
 
-// http://localhost:5000/api/faqs/679dd7258e8ffbcad74f7d2e
+

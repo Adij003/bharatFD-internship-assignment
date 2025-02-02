@@ -12,7 +12,7 @@ function Home() {
   const { user } = useSelector((state) => state.auth);
 
   // Check if user exists before accessing isAdmin
-  const [isAdmin] = useState(user ? user.isAdmin : false);
+  const isAdmin = user?.isAdmin || false;
 
   return (
     <>
@@ -27,13 +27,13 @@ function Home() {
       </section>
 
       {!isAdmin && (  // Only show this link if the user is not an admin
-        <Link to='/new-ticket' className='btn btn-reverse btn-block'>
+        <Link to='/new-faq' className='btn btn-reverse btn-block'>
           <FaQuestionCircle /> Ask a new Question
         </Link>
       )}
 
       
-      <Link to={isAdmin ? '/admin-tickets' : '/tickets'} className='btn btn-block'>
+      <Link to={isAdmin ? '/admin-tickets' : '/faqs'} className='btn btn-block'>
         <FaTicketAlt /> View all FAQs
       </Link>
     </>

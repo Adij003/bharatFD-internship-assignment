@@ -5,11 +5,11 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Header from "./components/Header";
-import NewTicket from "./pages/NewTicket";
+import NewQuestion from "./pages/NewQuestion";
 import PrivateRoute from "./components/PrivateRoute";
-import Tickets from "./pages/Tickets";
-import Ticket from "./pages/Ticket";
-import AdminTickets from "./pages/AdminTickets";
+import Questions from "./pages/Questions";
+
+import AdminQuestion from "./pages/AdminQuestion";
 
 function App() {
   return (
@@ -21,18 +21,16 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/new-ticket" element={<PrivateRoute />}>
-              <Route path="/new-ticket" element={<NewTicket />} />
+            <Route path="/new-faq" element={<PrivateRoute />}>
+              <Route path="/new-faq" element={<NewQuestion />} />
             </Route>
             
-              <Route path="/tickets" element={<Tickets />} />
+              <Route path="/faqs" element={<Questions />} />
               <Route path="/admin-tickets" element={<PrivateRoute />}>
-              <Route path="/admin-tickets" element={<AdminTickets />} />
+              <Route path="/admin-tickets" element={<AdminQuestion />} />
             </Route>
             
-            <Route path="/ticket/:ticketId" element={<PrivateRoute />}>
-              <Route path="/ticket/:ticketId" element={<Ticket />} />
-            </Route>
+            
           </Routes>
         </div>
       </Router>

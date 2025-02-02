@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa'; // Import arrow icons
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { useSelector, useDispatch } from "react-redux";
 import { updateAnswer } from "../features/tickets/ticketSlice";  // Import addAnswer action
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';  // Import ReactQuill styles
 
 function AdminTicketItem({ ticket }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,12 +12,12 @@ function AdminTicketItem({ ticket }) {
   const [answer, setAnswer] = useState(ticket.answer || '');  // To store the current answer text
   const dispatch = useDispatch();
 
-  const handleAnswerChange = (e) => {
-    setAnswer(e.target.value);  // Update the answer input text
+  const handleAnswerChange = (value) => {
+    setAnswer(value);  // Update the answer input text with ReactQuill value
   };
 
   const handleSubmitAnswer = (ticketId) => {
-    // Dispatch the addAnswer action with the ticket ID and answer text
+    // Dispatch the updateAnswer action with the ticket ID and answer text
     dispatch(updateAnswer({ ticketId, answer }));
     setIsAnswering(false);  // After submit, close the input field
   };
@@ -33,7 +35,10 @@ function AdminTicketItem({ ticket }) {
     <>
       <div className='ticket' onClick={() => setIsOpen(!isOpen)}>
         <div>{new Date(ticket.createdAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</div>
-        <div>{ticket.question}</div>
+        {/* <div>{ticket.question}</div> */}
+        <div 
+        dangerouslySetInnerHTML={{ __html: ticket.question }} 
+      />
         <div className="toggle-icon">
           {isOpen ? <FaChevronUp /> : <FaChevronDown />}
         </div>
@@ -42,31 +47,29 @@ function AdminTicketItem({ ticket }) {
       {isOpen && (
         <div className='ticket answer-box'>
           {!ticket.answer && !isAnswering && (
-            // Show the Answer button if there's no answer and not in edit mode
             <button className='button-ans' onClick={() => setIsAnswering(true)}>Answer</button>
           )}
 
           {isAnswering ? (
-            // Show the textarea and submit/cancel buttons when in editing mode
             <div className="answer-edit">
-              <textarea className='textarea-answer'
+              <ReactQuill
                 value={answer}
                 onChange={handleAnswerChange}
                 placeholder="Write the answer here..."
               />
               <button className='submit-btn-ans' onClick={() => handleSubmitAnswer(ticket._id)}>Submit</button>
-              <button className='cancel-button-ans' onClick={handleCancelAnswer}>Cancel</button>  {/* Cancel button */}
+              <button className='cancel-button-ans' onClick={handleCancelAnswer}>Cancel</button>
             </div>
           ) : (
-            // If there's an answer, just display it
             <div className="answer-text">
-              {ticket.answer && !isAnswering && ( <div className='for-update-ans'> 
-                <div>
-                    {ticket.answer}
-                    </div>
-            <button className='button-update' onClick={handleUpdateClick}>Update Answer</button>
-              </div>
-          )}
+              {ticket.answer && !isAnswering && (
+                <div className='for-update-ans'> 
+                  <div 
+        dangerouslySetInnerHTML={{ __html: ticket.answer }} 
+      />
+                  <button className='button-update' onClick={handleUpdateClick}>Update Answer</button>
+                </div>
+              )}
             </div>
           )}
         </div>

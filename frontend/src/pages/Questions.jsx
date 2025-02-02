@@ -3,9 +3,9 @@ import {useSelector, useDispatch} from 'react-redux'
 import {getTickets, reset} from '../features/tickets/ticketSlice'
 import Spinner from '../components/Spinner'
 import Backbutton from '../components/BackButton'
-import TicketItem from '../components/TicketItem'
+import QuestionItem from '../components/QuestionItem'
 
-function Tickets() {
+function Questions() {
     const {tickets, isLoading, isSuccess} = useSelector((state) => state.tickets)
     const dispatch = useDispatch()
 
@@ -37,7 +37,7 @@ function Tickets() {
             </div>
             {
                 tickets.map((ticket) => (
-                    <TicketItem key={ticket._id} ticket={ticket} />
+                    <QuestionItem key={ticket._id} ticket={ticket} />
                 ))
             }
         </div>
@@ -45,4 +45,4 @@ function Tickets() {
   )
 }
 
-export default Tickets 
+export default Questions 

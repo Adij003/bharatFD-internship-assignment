@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const faqSchema = mongoose.Schema(
   {
@@ -12,14 +12,19 @@ const faqSchema = mongoose.Schema(
       required: [true, 'Please add a description'],
     },
     answer: {
-        type: String,
+      type: String,
     },
-    // add language specific translation
-  
+    translations: {
+      type: Map,
+      of: {
+        question: String,
+        answer: String
+      }
+    }
   },
   {
     timestamps: true,
   }
-)
+);
 
-module.exports = mongoose.model('Faq', faqSchema)
+module.exports = mongoose.model('Faq', faqSchema);

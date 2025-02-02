@@ -5,9 +5,12 @@ import {toast} from 'react-toastify'
 import { createTicket, reset } from "../features/tickets/ticketSlice";
 import Spinner from '../components/Spinner'
 import BackButton from '../components/BackButton'
+import ReactQuill from 'react-quill'; 
+import 'react-quill/dist/quill.snow.css'; 
 
 
-function NewTicket() {
+
+function NewQuestion() {
   const { user } = useSelector((state) => state.auth);
   const { isLoading, isError, isSuccess, message } = useSelector((state) => state.tickets)
 
@@ -18,7 +21,7 @@ function NewTicket() {
 
   const [name] = useState(user.name);
   const [email] = useState(user.email);
-  const [question, setDescription] = useState("");
+  const [question, setQuestion] = useState("");
 
   useEffect(() => {
     if(isError){
@@ -27,7 +30,7 @@ function NewTicket() {
 
     if(isSuccess){
       dispatch(reset())
-      navigate('/tickets')
+      navigate('/faqs')
     }
     dispatch(reset())
   }, [dispatch, isError, isSuccess, navigate, message])
@@ -65,14 +68,11 @@ function NewTicket() {
 
           <div className="form-group">
             <label htmlFor="question"> Question</label>
-            <textarea
-              name="description"
-              id="description"
-              className="form-control"
-              placeholder="Please type your question here...."
+            <ReactQuill
               value={question}
-              onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
+              onChange={(value) => setQuestion(value)}
+              placeholder="Please type your question here...."
+            />
           </div>
           <div className="form-group form-group-submit-btn">
             <button className="btn btn-block submit-btn-new">Submit</button>
@@ -83,4 +83,4 @@ function NewTicket() {
   );
 }
 
-export default NewTicket;
+export default NewQuestion;
